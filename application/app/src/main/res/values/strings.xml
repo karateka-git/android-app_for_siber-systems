@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">application</string>
-    <string name="placeholder_input_city">City</string>
-    <string name="button_save_text">save</string>
-    <string name="place_not_found">city not found</string>
-</resources>

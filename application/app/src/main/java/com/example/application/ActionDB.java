@@ -13,6 +13,7 @@ public class ActionDB {
     }
 
     void insert(String table, String city, double temperature) {
+        delete(table);
         ContentValues cv = new ContentValues();
         cv.put("city", city);
         cv.put("temperature", temperature);
@@ -22,8 +23,7 @@ public class ActionDB {
     ContentValues read(String table) {
         ContentValues cv = new ContentValues();
         Cursor c = db.query(table, null, null, null, null, null, null);
-        if (c != null) {
-            c.moveToLast();
+        if (c.moveToLast()) {
             cv.put("city",c.getString(c.getColumnIndex("city")));
             cv.put("temperature",c.getString(c.getColumnIndex("temperature")));
             c.close();

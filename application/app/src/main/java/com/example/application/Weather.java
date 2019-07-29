@@ -30,7 +30,9 @@ public class Weather {
                                     R.string.place_not_found,
                                     Toast.LENGTH_LONG).show();
                             ContentValues cv = actionDB.read("tempInCity");
-                            renderWeather(cv.getAsDouble("temperature"), city);
+                            if (cv != null) {
+                                renderWeather(cv.getAsDouble("temperature"), cv.getAsString("city"));
+                            }
                         }
                     });
                 } else {
